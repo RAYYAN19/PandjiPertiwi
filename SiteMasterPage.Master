@@ -1,0 +1,157 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteMasterPage.master.cs" Inherits="SiteMasterPage" %>
+
+
+<!DOCTYPE html>
+<html>
+<head runat="server">    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- App favicon -->
+    <link rel="icon" type="image/ico" href="<%=ResolveUrl("~") %>img/favicon.png">
+    <title>Traxia - Service Support Portal</title>      
+
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/jquery-ui/jquery-ui.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/style.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/themes.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/icheck/all.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/select2/select2.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/multiselect/bootstrap-multiselect.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/multiselect/multi-select.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/datatable/tableTools.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/datatable/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="<%=ResolveUrl("~") %>css/plugins/tagsinput/jquery.tagsinput.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/timeago/jquery.timeago.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/jquery-ui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/fileupload/bootstrap-fileupload.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/mousewheel/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/autonumeric/autoNumeric.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/datepicker/moments-with-langs.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/datatables/jquery.dataTables.min.js"></script>    
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/datatables/extensions/dataTables.fixedHeader.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/datatables/extensions/dataTables.scroller.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/datatables/extensions/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/datatables/extensions/dataTables.fixedColumns.min.js"></script>    
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/icheck/jquery.icheck.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/maskedinput/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/elevatezoom/jquery.elevatezoom.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/multiselect/jquery.multi-select.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/eakroko.min.js"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~") %>js/application.min.js"></script>
+    <!--[if lte IE 9]>
+		<script src="<%=ResolveUrl("~") %>js/plugins/placeholder/jquery.placeholder.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('input, textarea').placeholder();
+			});
+		</script>
+		<![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            // set fluid width
+            versionFluid();
+            hideNav();
+
+            Sys.Browser.WebKit = {};
+            if (navigator.userAgent.indexOf('WebKit/') > -1) {
+                Sys.Browser.agent = Sys.Browser.WebKit;
+                Sys.Browser.version = parseFloat(navigator.userAgent.match(/WebKit\/(\d+(\.\d+)?)/)[1]);
+                Sys.Browser.name = 'WebKit';
+            }
+        });
+
+        function viewAddress(url, title, w, h) {
+            var left = (screen.width / 2) - (w / 2);
+            var top = (screen.height / 2) - (h / 2);
+            top = top - 25;
+            window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+        }
+
+        function invokeToTop() {
+            var a = $(".gototop");
+
+            if (a) {
+                a.click();
+            }
+        }     
+
+    </script>
+    <asp:ContentPlaceHolder id="MasterHeader" runat="server">
+    </asp:ContentPlaceHolder> 
+</head>
+<body class="theme-orange">
+    <div id="holder">
+        <div id="navigation">
+            <div class="nav-fixed container-fluid">
+          
+                <ul class="main-nav">            
+                    <li id ="liMasterData" runat="server">
+                        <a href="javascript:;;" data-toggle="dropdown" class="dropdown-toggle">
+						    <span>Master Data</span>
+						    <span class="caret"></span>
+					    </a>
+                        <ul class="dropdown-menu">
+                      
+                            <li class="dropdown-submenu" id="liUser" runat="server">
+                                <a href="javascript:;;" data-toggle="dropdown" class="dropdown-toggle">User Management</a>
+                                <ul class="dropdown-menu">                                
+                          
+                                    <li>
+									   <a href="<%=ResolveUrl("~") %>user/manage_user.aspx">Manage User</a>
+								    </li>
+                      
+                                   <%-- <li>
+									     <a href="<%=ResolveUrl("~") %>user/register_user.aspx">Register User Admin</a>
+								    </li>
+                                    <li>
+									   <a href="<%=ResolveUrl("~") %>user/manage_user.aspx">Manage User Admin</a>
+								    </li>--%>
+                                </ul>
+                            </li>
+                   
+                        </ul>
+                    </li>
+                </ul>
+            
+            </div>
+        </div>
+        <form id="frmMain" class="frm" runat="server" autocomplete="off" defaultbutton="btnDisableEnter" novalidate="novalidate" style="padding-bottom: 42px;">
+       <%--     <asp:ScriptManager ID="MainScriptManager" runat="server" AsyncPostBackTimeout ="360000"  LoadScriptsBeforeUI="true"     AjaxFrameworkMode="Enabled"     CompositeScript-ScriptMode="Release"     EnableCdn="true"     EnableCdnFallback="true"     EnableScriptLocalization="true" >
+                
+            </asp:ScriptManager>--%>
+            <asp:Button ID="btnDisableEnter" runat="server" Text="" OnClientClick="return false;" style="display:none;"/>
+            <div class="container-fluid nav-hidden" id="content">
+                <asp:Panel ID="pnlInfo" runat="server" CssClass="alert alert-info" Visible="false">
+                    <asp:Label ID="lblInfoMessage" runat="server"></asp:Label>
+                </asp:Panel>
+                <asp:ContentPlaceHolder id="MasterContent" runat="server">    
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+        <div id="footer">
+       <%--     <p>
+                Traxia 3.5 - Service Support Portal
+                <span class="font-grey-4">|</span>
+                Copyright 2016
+                <a href="http://www.dit.co.id" target="_blank">PT.Digitalinstincts Teknologi</a>
+            </p>--%>
+            <a href="#" class="gototop">
+			    <i class="fa fa-arrow-up"></i>
+		    </a>
+        </div>
+    </div>    
+</body>
+</html>
