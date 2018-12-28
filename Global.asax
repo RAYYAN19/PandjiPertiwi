@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Pandji.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="PandjiPertiwi.Global" Language="C#" %>

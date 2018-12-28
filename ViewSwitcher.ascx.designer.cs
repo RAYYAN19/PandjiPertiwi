@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pandji {
+namespace PandjiPertiwi {
     
     
     public partial class ViewSwitcher {
